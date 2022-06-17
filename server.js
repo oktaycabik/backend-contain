@@ -5,7 +5,7 @@ const routers = require("./routers/index");
 const errorHandler = require("./middlewares/errors/errorHandler");
 const cors = require("cors");
 const path = require("path")
-const multer =require("multer")
+// const multer =require("multer")
 const app = express();
 //Environment Veriables
 
@@ -19,24 +19,24 @@ mongoose.connect(process.env.MONGO_URI).then(() => {
 });
 const PORT = process.env.PORT;
 app.use(cors());
-const storage=multer.diskStorage({
-  destination: (req,file,cb) =>{
-     cb(null,"public/images")
-  },
-  filename:(req,file,cb)=>{
-    cb(null,file.originalname)
-  }
-});
-const upload=multer({storage})
+// const storage=multer.diskStorage({
+//   destination: (req,file,cb) =>{
+//      cb(null,"public/images")
+//   },
+//   filename:(req,file,cb)=>{
+//     cb(null,file.originalname)
+//   }
+// });
+// const upload=multer({storage})
 
 app.use("/api", routers);
-app.post("/api/upload",upload.single("file"),(req,res)=>{
-  try {
-    return res.status(200).json("File uploaded successfuly.")
-  } catch (error) {
-    console.log('error', error)
-  }
-})
+// app.post("/api/upload",upload.single("file"),(req,res)=>{
+//   try {
+//     return res.status(200).json("File uploaded successfuly.")
+//   } catch (error) {
+//     console.log('error', error)
+//   }
+// })
 app.use(errorHandler);
 
 app.listen(PORT , () => {
