@@ -1,6 +1,6 @@
 const Comment = require("../models/Comment");
 const Post = require("../models/Post");
-const User = require("../models/User");
+
 const asyncErrorWrapper = require("express-async-handler");
 
 const newComment = asyncErrorWrapper(async (req, res, next) => {
