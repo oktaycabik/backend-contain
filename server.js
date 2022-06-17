@@ -39,6 +39,6 @@ app.post("/api/upload",upload.single("file"),(req,res)=>{
 })
 app.use(errorHandler);
 
-app.listen(PORT, () => {
+app.listen(PORT || "5000", () => {
   console.log(`app started on ${PORT}:${process.env.NODE_ENV}`);
 });
