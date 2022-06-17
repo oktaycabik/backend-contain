@@ -1,9 +1,7 @@
 {
   "name": "proje2",
   "version": "1.0.0",
-  "engines": {
-    "node": "16.13.2"
-    },
+  
   "description": "Express",
   "main": "server.js",
   "scripts": {
