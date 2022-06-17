@@ -28,6 +28,8 @@ const storage=multer.diskStorage({
   }
 });
 const upload=multer({storage})
+
+app.use("/api", routers);
 app.post("/api/upload",upload.single("file"),(req,res)=>{
   try {
     return res.status(200).json("File uploaded successfuly.")
@@ -35,7 +37,6 @@ app.post("/api/upload",upload.single("file"),(req,res)=>{
     console.log('error', error)
   }
 })
-app.use("/api", routers);
 app.use(errorHandler);
 
 app.listen(PORT, () => {
